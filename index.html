@@ -26,19 +26,23 @@
         body {
             font-family: Arial, Helvetica, sans-serif;
             background-color: #ffffff;
-            color: #222222;
+            color: #111827;
             line-height: 1.6;
         }
 
         :root {
-            --scarlet: #cc0033;
-            --scarlet-dark: #a60029;
-            --black: #151515;
-            --charcoal: #252525;
-            --gray: #666666;
-            --light-gray: #f5f5f5;
-            --border: #e4e4e4;
+            --rutgers-red: #cc0033;
+            --rutgers-dark-red: #a00028;
+            --black: #111827;
+            --gray: #5f6673;
+            --light-gray: #f6f8fa;
+            --border: #e5e7eb;
             --white: #ffffff;
+            --soft-red: #fbe9ed;
+        }
+
+        a {
+            text-decoration: none;
         }
 
 
@@ -47,45 +51,80 @@
         ========================================== */
 
         nav {
-            height: 76px;
-            padding: 0 8%;
+            width: 100%;
+            height: 78px;
+
+            padding: 0 9%;
+
             background-color: var(--white);
+
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 4px solid var(--scarlet);
+
+            border-top: 8px solid #000000;
+            border-bottom: 1px solid #eeeeee;
 
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        .logo {
-            font-size: 21px;
-            font-weight: 800;
-            color: var(--black);
-        }
-
-        .logo span {
-            color: var(--scarlet);
-        }
-
-        nav ul {
+        .nav-left {
             display: flex;
-            list-style: none;
-            gap: 32px;
+            align-items: center;
+            gap: 14px;
         }
 
-        nav a {
-            color: var(--black);
-            text-decoration: none;
-            font-size: 15px;
+        .rbs-mark {
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--rutgers-red);
+        }
+
+        .nav-divider {
+            width: 1px;
+            height: 28px;
+            background-color: #dddddd;
+        }
+
+        .portfolio-name {
+            font-size: 18px;
             font-weight: 700;
+            color: var(--black);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-right a {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--black);
             transition: 0.2s;
         }
 
-        nav a:hover {
-            color: var(--scarlet);
+        .nav-right a:hover {
+            color: var(--rutgers-red);
+        }
+
+        .resume-button {
+            background-color: var(--black);
+            color: white !important;
+
+            padding: 11px 21px;
+
+            border-radius: 24px;
+
+            transition: 0.2s;
+        }
+
+        .resume-button:hover {
+            background-color: var(--rutgers-red);
+            transform: translateY(-2px);
         }
 
 
@@ -94,227 +133,203 @@
         ========================================== */
 
         .hero {
-            min-height: 80vh;
-            padding: 85px 10%;
+            min-height: 590px;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background-color: var(--light-gray);
+
+            padding: 95px 11%;
+
+            display: grid;
+            grid-template-columns: 320px 1fr;
             gap: 90px;
 
-            background:
-                linear-gradient(
-                    110deg,
-                    #ffffff 0%,
-                    #ffffff 62%,
-                    #f4f4f4 62%,
-                    #f4f4f4 100%
-                );
-        }
-
-        .hero-text {
-            max-width: 680px;
-        }
-
-        .school-label {
-            display: inline-block;
-
-            color: var(--scarlet);
-            font-size: 14px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-
-            margin-bottom: 18px;
-        }
-
-        .hero h1 {
-            color: var(--black);
-            font-size: 62px;
-            line-height: 1.05;
-            letter-spacing: -2px;
-            margin-bottom: 14px;
-        }
-
-        .hero h1 span {
-            color: var(--scarlet);
-        }
-
-        .hero h2 {
-            font-size: 25px;
-            color: #555;
-            font-weight: 400;
-            margin-bottom: 25px;
-        }
-
-        .statement {
-            font-size: 19px;
-            color: #555;
-            max-width: 650px;
-            margin-bottom: 34px;
+            align-items: center;
         }
 
 
         /* =========================================
-           HEADSHOT
+           PROFILE SIDE
         ========================================== */
 
-        .photo-container {
-            position: relative;
-        }
-
-        .photo-container::before {
-            content: "";
-            position: absolute;
-
-            width: 330px;
-            height: 330px;
-
-            background-color: var(--scarlet);
-
-            top: 18px;
-            left: 18px;
-
-            border-radius: 8px;
+        .profile-side {
+            text-align: center;
         }
 
         .headshot {
-            position: relative;
-
-            width: 330px;
-            height: 330px;
+            width: 210px;
+            height: 210px;
 
             object-fit: cover;
-            object-position: center;
 
-            border-radius: 8px;
+            border-radius: 50%;
 
-            border: 5px solid var(--white);
+            border: 6px solid white;
 
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.13);
+
+            margin-bottom: 24px;
+        }
+
+        .profile-side h2 {
+            font-size: 24px;
+            color: var(--black);
+            margin-bottom: 2px;
+        }
+
+        .profile-school {
+            color: var(--rutgers-red);
+
+            font-weight: 700;
+
+            margin-bottom: 3px;
+        }
+
+        .profile-class {
+            color: var(--gray);
+            font-size: 14px;
         }
 
 
         /* =========================================
-           BUTTONS
+           HERO TEXT
         ========================================== */
 
-        .button {
+        .hero-main {
+            max-width: 850px;
+        }
+
+        .status-label {
             display: inline-block;
 
-            background-color: var(--scarlet);
-            color: var(--white);
+            background-color: var(--soft-red);
+            color: #9d3047;
 
-            padding: 13px 24px;
+            border-radius: 20px;
 
-            border: 2px solid var(--scarlet);
-            border-radius: 4px;
+            padding: 5px 14px;
 
-            text-decoration: none;
+            font-size: 13px;
             font-weight: 700;
 
-            margin-right: 10px;
+            margin-bottom: 22px;
+        }
+
+        .hero-main h1 {
+            font-size: 51px;
+            line-height: 1.03;
+
+            letter-spacing: -2px;
+
+            color: #050816;
+
+            margin-bottom: 22px;
+
+            max-width: 850px;
+        }
+
+        .hero-main h1 span {
+            color: var(--rutgers-red);
+        }
+
+        .hero-description {
+            color: var(--gray);
+
+            font-size: 19px;
+
+            line-height: 1.75;
+
+            max-width: 800px;
+
+            margin-bottom: 32px;
+        }
+
+
+        /* =========================================
+           HERO CONTACT BUTTONS
+        ========================================== */
+
+        .hero-links {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+        }
+
+        .email-button {
+            display: inline-block;
+
+            background-color: var(--white);
+            color: var(--black);
+
+            border: 1px solid #dedede;
+
+            padding: 12px 23px;
+
+            border-radius: 25px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
 
             transition: 0.2s;
         }
 
-        .button:hover {
-            background-color: var(--scarlet-dark);
-            border-color: var(--scarlet-dark);
+        .email-button:hover {
+            border-color: var(--rutgers-red);
+            color: var(--rutgers-red);
             transform: translateY(-2px);
         }
 
-        .button-secondary {
-            background-color: transparent;
+        .linkedin-link {
             color: var(--black);
-            border-color: var(--black);
+
+            font-size: 14px;
+            font-weight: 700;
+
+            transition: 0.2s;
         }
 
-        .button-secondary:hover {
-            background-color: var(--black);
-            color: var(--white);
-            border-color: var(--black);
+        .linkedin-link:hover {
+            color: var(--rutgers-red);
         }
 
 
         /* =========================================
-           SECTION GENERAL
+           SECTIONS
         ========================================== */
 
         section {
-            padding: 95px 10%;
+            padding: 90px 11%;
         }
 
-        .section-heading {
+        .section-header {
             max-width: 1200px;
-            margin: 0 auto 50px auto;
+            margin: auto;
+            margin-bottom: 48px;
         }
 
         .section-label {
-            color: var(--scarlet);
+            color: var(--rutgers-red);
+
             font-size: 13px;
             font-weight: 800;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
+
             text-transform: uppercase;
 
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         .section-title {
             font-size: 38px;
-            color: var(--black);
-            line-height: 1.2;
+            color: #070b18;
+            margin-bottom: 10px;
         }
 
-        .title-line {
-            width: 55px;
-            height: 4px;
-
-            background-color: var(--scarlet);
-
-            margin-top: 15px;
-        }
-
-
-        /* =========================================
-           ABOUT
-        ========================================== */
-
-        .about {
-            background-color: var(--black);
-            color: var(--white);
-        }
-
-        .about .section-title {
-            color: var(--white);
-        }
-
-        .about-container {
-            max-width: 1200px;
-            margin: auto;
-
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 70px;
-            align-items: start;
-        }
-
-        .about-heading {
-            font-size: 31px;
-            line-height: 1.25;
-        }
-
-        .about-heading span {
-            color: var(--scarlet);
-        }
-
-        .about-text {
-            font-size: 18px;
-            color: #d4d4d4;
-        }
-
-        .about-text p {
-            margin-bottom: 17px;
+        .section-description {
+            color: var(--gray);
+            max-width: 700px;
+            font-size: 17px;
         }
 
 
@@ -323,37 +338,54 @@
         ========================================== */
 
         .skills {
-            background-color: var(--light-gray);
+            background-color: #ffffff;
         }
 
-        .skills-container {
+        .skills-grid {
             max-width: 1200px;
+
             margin: auto;
 
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 16px;
         }
 
-        .skill {
-            background-color: var(--white);
+        .skill-card {
+            background-color: var(--light-gray);
 
-            padding: 21px;
+            border: 1px solid var(--border);
 
-            border-left: 4px solid var(--scarlet);
-            border-top: 1px solid var(--border);
-            border-right: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
+            border-radius: 13px;
+
+            padding: 22px;
 
             font-weight: 700;
-            color: #333;
 
             transition: 0.2s;
         }
 
-        .skill:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+        .skill-card::before {
+            content: "";
+
+            display: block;
+
+            width: 32px;
+            height: 4px;
+
+            background-color: var(--rutgers-red);
+
+            margin-bottom: 14px;
+
+            border-radius: 5px;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
         }
 
 
@@ -362,108 +394,119 @@
         ========================================== */
 
         .projects {
-            background-color: var(--white);
+            background-color: var(--light-gray);
         }
 
         .project-grid {
             max-width: 1200px;
+
             margin: auto;
 
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+
+            gap: 24px;
         }
 
         .project-card {
-            background-color: var(--white);
+            background-color: white;
 
             border: 1px solid var(--border);
-            border-top: 5px solid var(--scarlet);
 
-            padding: 30px;
+            border-radius: 14px;
+
+            padding: 28px;
+
+            min-height: 410px;
 
             display: flex;
             flex-direction: column;
-
-            min-height: 430px;
 
             transition: 0.25s;
         }
 
         .project-card:hover {
-            transform: translateY(-7px);
+            transform: translateY(-5px);
 
-            box-shadow:
-                0 14px 35px rgba(0, 0, 0, 0.09);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.07);
         }
 
-        .project-number {
-            color: var(--scarlet);
+        .project-badge {
+            display: inline-block;
 
-            font-size: 13px;
+            align-self: flex-start;
+
+            background-color: var(--soft-red);
+
+            color: var(--rutgers-red);
+
+            padding: 5px 10px;
+
+            border-radius: 15px;
+
+            font-size: 12px;
             font-weight: 800;
 
-            letter-spacing: 1.5px;
-
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .project-card h3 {
-            font-size: 23px;
+            font-size: 22px;
+
+            line-height: 1.3;
+
+            margin-bottom: 14px;
+
             color: var(--black);
-
-            line-height: 1.25;
-
-            margin-bottom: 17px;
         }
 
         .project-card p {
-            color: #626262;
-            font-size: 15.5px;
+            color: var(--gray);
+
+            font-size: 15px;
 
             margin-bottom: 22px;
         }
 
         .project-tags {
             display: flex;
+
             flex-wrap: wrap;
 
-            gap: 7px;
+            gap: 8px;
 
             margin-top: auto;
         }
 
         .tag {
-            background-color: #f1f1f1;
-            color: #444;
+            background-color: #f0f1f3;
 
             padding: 5px 9px;
 
             font-size: 12px;
             font-weight: 700;
+
+            border-radius: 5px;
+
+            color: #454b55;
         }
-
-
-        /* =========================================
-           PROJECT LINKS
-        ========================================== */
 
         .project-link {
             display: inline-block;
 
-            margin-top: 23px;
-
-            color: var(--scarlet);
+            color: var(--rutgers-red);
 
             font-weight: 800;
-            text-decoration: none;
+
+            margin-top: 22px;
 
             transition: 0.2s;
         }
 
         .project-link:hover {
-            color: var(--scarlet-dark);
-            transform: translateX(4px);
+            color: var(--rutgers-dark-red);
+            transform: translateX(3px);
         }
 
 
@@ -472,44 +515,66 @@
         ========================================== */
 
         .contact {
-            background-color: var(--scarlet);
+            background-color: #111111;
+
+            color: white;
 
             text-align: center;
-
-            color: var(--white);
         }
 
         .contact h2 {
-            color: var(--white);
-
-            font-size: 42px;
+            font-size: 40px;
 
             margin-bottom: 12px;
         }
 
+        .contact h2 span {
+            color: var(--rutgers-red);
+        }
+
         .contact p {
-            max-width: 650px;
-            margin: 0 auto 30px auto;
+            color: #c6c6c6;
 
-            font-size: 18px;
+            margin-bottom: 28px;
 
-            color: #ffffff;
+            font-size: 17px;
         }
 
-        .contact .button {
-            background-color: var(--white);
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
 
-            color: var(--scarlet);
-
-            border-color: var(--white);
+            gap: 14px;
         }
 
-        .contact .button:hover {
-            background-color: var(--black);
+        .contact-button {
+            display: inline-block;
 
-            color: var(--white);
+            padding: 12px 22px;
 
-            border-color: var(--black);
+            background-color: var(--rutgers-red);
+
+            color: white;
+
+            border-radius: 5px;
+
+            font-weight: 700;
+
+            transition: 0.2s;
+        }
+
+        .contact-button:hover {
+            background-color: var(--rutgers-dark-red);
+        }
+
+        .contact-button.secondary {
+            background-color: white;
+
+            color: #111111;
+        }
+
+        .contact-button.secondary:hover {
+            background-color: #eeeeee;
         }
 
 
@@ -518,17 +583,17 @@
         ========================================== */
 
         footer {
-            background-color: var(--black);
+            background-color: #070707;
 
-            color: #aaaaaa;
+            color: #888888;
 
-            padding: 27px 8%;
+            padding: 24px;
 
             text-align: center;
 
-            font-size: 14px;
+            font-size: 13px;
 
-            border-top: 1px solid #333;
+            border-top: 3px solid var(--rutgers-red);
         }
 
 
@@ -536,61 +601,82 @@
            MOBILE
         ========================================== */
 
-        @media (max-width: 900px) {
+        @media (max-width: 950px) {
 
             nav {
-                height: auto;
-                padding: 16px 5%;
-
-                flex-direction: column;
-
-                gap: 12px;
+                padding: 0 5%;
             }
 
-            nav ul {
-                gap: 16px;
+            .portfolio-name {
+                display: none;
+            }
+
+            .nav-divider {
+                display: none;
             }
 
             .hero {
-                flex-direction: column-reverse;
+                grid-template-columns: 1fr;
 
                 text-align: center;
 
-                gap: 50px;
+                gap: 45px;
 
                 padding: 65px 7%;
-
-                background: #ffffff;
             }
 
-            .hero h1 {
-                font-size: 45px;
+            .hero-main {
+                margin: auto;
             }
 
-            .hero h2 {
-                font-size: 21px;
+            .hero-links {
+                justify-content: center;
             }
 
-            .photo-container::before {
-                width: 260px;
-                height: 260px;
+            .hero-main h1 {
+                font-size: 42px;
             }
 
-            .headshot {
-                width: 260px;
-                height: 260px;
-            }
-
-            .about-container {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-
-            .skills-container {
-                grid-template-columns: 1fr;
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .nav-right a:not(.resume-button) {
+                display: none;
+            }
+
+            .rbs-mark {
+                font-size: 19px;
+            }
+
+            .resume-button {
+                padding: 9px 15px;
+                font-size: 12px !important;
+            }
+
+            .hero-main h1 {
+                font-size: 36px;
+            }
+
+            .hero-description {
+                font-size: 17px;
+            }
+
+            .hero-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .skills-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -598,26 +684,9 @@
                 padding: 70px 7%;
             }
 
-        }
-
-
-        @media (max-width: 520px) {
-
-            nav ul {
-                font-size: 13px;
-                gap: 11px;
-            }
-
-            .hero h1 {
-                font-size: 39px;
-            }
-
-            .button {
-                display: block;
-
-                margin: 10px auto;
-
-                max-width: 230px;
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
             }
 
         }
@@ -636,37 +705,40 @@
 
     <nav>
 
-        <div class="logo">
-            Dmytro Husyev <span>| RBS</span>
+        <div class="nav-left">
+
+            <div class="rbs-mark">
+                RBS
+            </div>
+
+            <div class="nav-divider"></div>
+
+            <div class="portfolio-name">
+                Dmytro's Portfolio
+            </div>
+
         </div>
 
-        <ul>
 
-            <li>
-                <a href="#about">
-                    About
-                </a>
-            </li>
+        <div class="nav-right">
 
-            <li>
-                <a href="#skills">
-                    Skills
-                </a>
-            </li>
+            <a href="#about">
+                About
+            </a>
 
-            <li>
-                <a href="#projects">
-                    Projects
-                </a>
-            </li>
+            <a href="#projects">
+                Projects
+            </a>
 
-            <li>
-                <a href="#contact">
-                    Contact
-                </a>
-            </li>
+            <a
+                href="resume.pdf"
+                download
+                class="resume-button"
+            >
+                Download Resume
+            </a>
 
-        </ul>
+        </div>
 
     </nav>
 
@@ -676,69 +748,85 @@
          HERO
     ========================================== -->
 
-    <header class="hero">
+    <header
+        class="hero"
+        id="about"
+    >
 
 
-        <div class="hero-text">
+        <!-- PROFILE -->
 
-            <div class="school-label">
-                Rutgers Business School
-            </div>
-
-
-            <h1>
-                Dmytro <span>Husyev</span>
-            </h1>
-
-
-            <h2>
-                Finance Student & Aspiring Financial Analyst
-            </h2>
-
-
-            <!--
-                PERSONAL STATEMENT
-                This satisfies the assignment requirement.
-            -->
-
-            <p class="statement">
-
-                Finance student at Rutgers Business School with experience
-                in financial analysis, business operations, and
-                entrepreneurship, interested in applying data-driven
-                insights to real-world business decisions.
-
-            </p>
-
-
-            <a
-                href="#projects"
-                class="button"
-            >
-                View My Projects
-            </a>
-
-
-            <a
-                href="#contact"
-                class="button button-secondary"
-            >
-                Contact Me
-            </a>
-
-        </div>
-
-
-
-        <!-- HEADSHOT -->
-
-        <div class="photo-container">
+        <div class="profile-side">
 
             <img
                 src="headshot.png"
                 alt="Professional headshot of Dmytro Husyev"
                 class="headshot"
             >
+
+            <h2>
+                Dmytro Husyev
+            </h2>
+
+            <div class="profile-school">
+                Rutgers Business School
+            </div>
+
+            <div class="profile-class">
+                Finance | Class of 2028
+            </div>
+
+        </div>
+
+
+
+        <!-- INTRO -->
+
+        <div class="hero-main">
+
+            <div class="status-label">
+                Finance • Business • Analytics
+            </div>
+
+
+            <h1>
+                Building a career in
+                <span>finance</span>,
+                grounded at Rutgers.
+            </h1>
+
+
+            <p class="hero-description">
+
+                Welcome! I'm Dmytro, a Finance student at Rutgers Business
+                School with experience in financial analysis, business
+                operations, and entrepreneurship. I am developing skills
+                across finance, data, and analytics while pursuing
+                opportunities to apply them to real-world business decisions.
+
+            </p>
+
+
+            <div class="hero-links">
+
+                <a
+                    href="mailto:dvh25@scarletmail.rutgers.edu"
+                    class="email-button"
+                >
+                    Email Me
+                </a>
+
+
+                <a
+                    href="https://www.linkedin.com/in/dmytro-husyev-a070072aa/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="linkedin-link"
+                >
+                    LinkedIn Profile →
+                </a>
+
+            </div>
 
         </div>
 
@@ -748,174 +836,83 @@
 
 
     <!-- =========================================
-         ABOUT
-    ========================================== -->
-
-    <section
-        class="about"
-        id="about"
-    >
-
-
-        <div class="section-heading">
-
-            <div class="section-label">
-                About
-            </div>
-
-            <h2 class="section-title">
-                About Me
-            </h2>
-
-            <div class="title-line"></div>
-
-        </div>
-
-
-
-        <div class="about-container">
-
-
-            <div class="about-heading">
-
-                Building experience at the intersection of
-                <span>finance, business, and data.</span>
-
-            </div>
-
-
-
-            <div class="about-text">
-
-                <p>
-
-                    I am a Finance student at Rutgers Business School
-                    with an interest in financial markets, investment
-                    analysis, and corporate finance.
-
-                </p>
-
-
-                <p>
-
-                    Through academic projects, independent investing,
-                    entrepreneurship, and professional experience,
-                    I have developed skills in financial analysis,
-                    Excel, business operations, and data-driven
-                    decision-making.
-
-                </p>
-
-
-                <p>
-
-                    I am continuing to expand my technical and
-                    analytical skills while pursuing opportunities
-                    to gain hands-on experience in the finance industry.
-
-                </p>
-
-            </div>
-
-
-        </div>
-
-
-    </section>
-
-
-
-    <!-- =========================================
          SKILLS
     ========================================== -->
 
-    <section
-        class="skills"
-        id="skills"
-    >
+    <section class="skills">
 
-
-        <div class="section-heading">
+        <div class="section-header">
 
             <div class="section-label">
-                Expertise
+                Skills
             </div>
 
             <h2 class="section-title">
-                Skills
+                Finance, Business & Analytics
             </h2>
 
-            <div class="title-line"></div>
+            <p class="section-description">
+
+                A developing skill set built through coursework,
+                independent projects, professional experience,
+                and business operations.
+
+            </p>
 
         </div>
 
 
+        <div class="skills-grid">
 
-        <div class="skills-container">
-
-
-            <div class="skill">
+            <div class="skill-card">
                 Microsoft Excel
             </div>
 
-
-            <div class="skill">
+            <div class="skill-card">
                 Financial Analysis
             </div>
 
-
-            <div class="skill">
+            <div class="skill-card">
                 Financial Statement Analysis
             </div>
 
-
-            <div class="skill">
+            <div class="skill-card">
                 Ratio Analysis
             </div>
 
-
-            <div class="skill">
+            <div class="skill-card">
                 Portfolio Analysis
             </div>
 
-
-            <div class="skill">
+            <div class="skill-card">
                 SQL
             </div>
 
-
-            <div class="skill">
+            <div class="skill-card">
                 Data Analysis
             </div>
 
-
-            <div class="skill">
-                Accounts Receivable
-            </div>
-
-
-            <div class="skill">
-                Invoicing
-            </div>
-
-
-            <div class="skill">
+            <div class="skill-card">
                 Business Operations
             </div>
 
+            <div class="skill-card">
+                Accounts Receivable
+            </div>
 
-            <div class="skill">
+            <div class="skill-card">
+                Invoicing
+            </div>
+
+            <div class="skill-card">
                 Problem Solving
             </div>
 
-
-            <div class="skill">
+            <div class="skill-card">
                 Microsoft Office
             </div>
 
-
         </div>
-
 
     </section>
 
@@ -930,54 +927,52 @@
         id="projects"
     >
 
-
-        <div class="section-heading">
+        <div class="section-header">
 
             <div class="section-label">
-                Experience
+                My Work
             </div>
 
             <h2 class="section-title">
                 Selected Projects
             </h2>
 
-            <div class="title-line"></div>
+            <p class="section-description">
+
+                Projects demonstrating financial analysis,
+                investment research, risk assessment,
+                and quantitative thinking.
+
+            </p>
 
         </div>
-
 
 
         <div class="project-grid">
 
 
 
-            <!-- =================================
-                 PROJECT 01
-            ================================== -->
+            <!-- PROJECT 1 -->
 
             <div class="project-card">
 
-
-                <div class="project-number">
-                    PROJECT 01
+                <div class="project-badge">
+                    EQUITY RESEARCH
                 </div>
-
 
                 <h3>
                     Celsius Holdings Equity Research
                 </h3>
 
-
                 <p>
 
-                    Conducted an equity research analysis of Celsius
-                    Holdings using SEC filings and financial statements.
-                    Evaluated revenue growth, profitability, financial
-                    ratios, recent acquisitions, and company performance
-                    to develop an investment-focused view of the business.
+                    Conducted an equity research analysis of Celsius Holdings
+                    using SEC filings and financial statements. Evaluated
+                    revenue growth, profitability, financial ratios,
+                    acquisitions, and company performance to develop an
+                    investment-focused view of the business.
 
                 </p>
-
 
                 <div class="project-tags">
 
@@ -995,38 +990,30 @@
 
                 </div>
 
-
             </div>
 
 
 
-            <!-- =================================
-                 PROJECT 02
-            ================================== -->
+            <!-- PROJECT 2 -->
 
             <div class="project-card">
 
-
-                <div class="project-number">
-                    PROJECT 02
+                <div class="project-badge">
+                    PORTFOLIO ANALYSIS
                 </div>
-
 
                 <h3>
                     Investment Portfolio Analysis
                 </h3>
 
-
                 <p>
 
-                    Analyzed investment portfolio performance using
-                    Excel, including annual returns, variance, standard
-                    deviation, covariance, correlation, and Sharpe ratio
-                    calculations to evaluate portfolio risk and
-                    risk-adjusted performance.
+                    Analyzed portfolio performance using Excel,
+                    including annual returns, variance, standard deviation,
+                    covariance, correlation, and Sharpe ratio calculations
+                    to evaluate portfolio risk and risk-adjusted performance.
 
                 </p>
-
 
                 <div class="project-tags">
 
@@ -1044,39 +1031,32 @@
 
                 </div>
 
-
             </div>
 
 
 
-            <!-- =================================
-                 PROJECT 03
-            ================================== -->
+            <!-- PROJECT 3 -->
 
             <div class="project-card">
 
-
-                <div class="project-number">
-                    PROJECT 03
+                <div class="project-badge">
+                    JOB SIMULATION
                 </div>
-
 
                 <h3>
                     PGIM Private Credit Job Simulation
                 </h3>
 
-
                 <p>
 
-                    Completed a private credit job simulation focused
-                    on financial analysis, credit risk assessment,
+                    Completed a private credit job simulation focused on
+                    financial analysis, credit risk assessment,
                     investment evaluation, and portfolio monitoring.
                     Analyzed company financial information and investment
                     guidelines to evaluate potential investments and
                     develop recommendations.
 
                 </p>
-
 
                 <div class="project-tags">
 
@@ -1095,12 +1075,6 @@
                 </div>
 
 
-
-                <!--
-                    Opens your PGIM certificate
-                    in a new browser tab.
-                -->
-
                 <a
                     href="pgim-certificate.pdf"
                     target="_blank"
@@ -1110,12 +1084,10 @@
                     View Certificate →
                 </a>
 
-
             </div>
 
 
         </div>
-
 
     </section>
 
@@ -1125,48 +1097,38 @@
          CONTACT
     ========================================== -->
 
-    <section
-        class="contact"
-        id="contact"
-    >
-
+    <section class="contact">
 
         <h2>
-            Let's Connect
+            Let's <span>Connect.</span>
         </h2>
 
-
         <p>
-
-            I'm interested in opportunities to learn, contribute,
-            and gain hands-on experience in finance and business.
-
+            I'm interested in opportunities to learn,
+            contribute, and gain hands-on experience in finance.
         </p>
 
 
+        <div class="contact-buttons">
 
-        <!-- LINKEDIN -->
-
-        <a
-            class="button"
-            href="https://www.linkedin.com/in/dmytro-husyev-a070072aa/"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            LinkedIn
-        </a>
+            <a
+                href="mailto:dvh25@scarletmail.rutgers.edu"
+                class="contact-button"
+            >
+                Email Me
+            </a>
 
 
+            <a
+                href="https://www.linkedin.com/in/dmytro-husyev-a070072aa/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-button secondary"
+            >
+                LinkedIn
+            </a>
 
-        <!-- EMAIL -->
-
-        <a
-            class="button"
-            href="mailto:dvh25@scarletmail.rutgers.edu"
-        >
-            Email Me
-        </a>
-
+        </div>
 
     </section>
 
