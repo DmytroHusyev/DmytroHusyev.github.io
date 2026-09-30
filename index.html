@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dmytro | Finance Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f7f8fa;
+            color: #1d2430;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            background-color: #ffffff;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #e6e8eb;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #14213d;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: #1d4ed8;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 82vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 80px;
+            padding: 80px 10%;
+            background: linear-gradient(135deg, #ffffff, #eef2f7);
+        }
+
+        .hero-text {
+            max-width: 650px;
+        }
+
+        .hero-label {
+            color: #1d4ed8;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            color: #14213d;
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            font-size: 24px;
+            color: #5a6473;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .statement {
+            font-size: 19px;
+            color: #4a5565;
+            max-width: 620px;
+            margin-bottom: 32px;
+        }
+
+        .headshot {
+            width: 330px;
+            height: 330px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 7px solid white;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.14);
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 25px;
+            background-color: #14213d;
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+            margin-right: 10px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            background-color: transparent;
+            color: #14213d;
+            border: 2px solid #14213d;
+        }
+
+        .button-secondary:hover {
+            color: white;
+            background-color: #14213d;
+        }
+
+        /* GENERAL SECTIONS */
+
+        section {
+            padding: 90px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: #14213d;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 50px;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background-color: white;
+        }
+
+        .about-text {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+            font-size: 18px;
+            color: #4b5563;
+        }
+
+        /* SKILLS */
+
+        .skills {
+            background-color: #f7f8fa;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .skill {
+            background-color: white;
+            padding: 13px 20px;
+            border-radius: 8px;
+            border: 1px solid #e2e5e9;
+            font-weight: 600;
+            color: #374151;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+        }
+
+        /* PROJECTS */
+
+        .projects {
+            background-color: white;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .project-card {
+            background-color: #f9fafb;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            transition: 0.25s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+        }
+
+        .project-number {
+            color: #1d4ed8;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .project-card h3 {
+            color: #14213d;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            color: #5d6674;
+            margin-bottom: 20px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background-color: #e8eefc;
+            color: #1d4ed8;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            background-color: #14213d;
+            color: white;
+            text-align: center;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact p {
+            color: #d1d5db;
+            margin-bottom: 25px;
+        }
+
+        .contact a {
+            color: white;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #0d172a;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 900px) {
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .headshot {
+                width: 260px;
+                height: 260px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <div class="logo">Dmytro</div>
+
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <div class="hero">
+
+        <div class="hero-text">
+
+            <div class="hero-label">
+                Rutgers Business School
+            </div>
+
+            <h1>Dmytro</h1>
+
+            <h2>Finance Student & Aspiring Financial Analyst</h2>
+
+            <p class="statement">
+                Finance student at Rutgers Business School with experience in
+                financial analysis, business operations, and entrepreneurship,
+                interested in applying data-driven insights to real-world
+                business decisions.
+            </p>
+
+            <a class="button" href="#projects">
+                View My Projects
+            </a>
+
+            <a class="button button-secondary" href="#contact">
+                Contact Me
+            </a>
+
+        </div>
+
+
+        <div>
+            <img
+                src="headshot.png"
+                alt="Professional headshot of Dmytro"
+                class="headshot"
+            >
+        </div>
+
+    </div>
+
+
+    <!-- ABOUT -->
+
+    <section class="about" id="about">
+
+        <h2 class="section-title">About Me</h2>
+
+        <p class="section-subtitle">
+            Finance • Business • Data
+        </p>
+
+        <p class="about-text">
+            I am a Finance student at Rutgers Business School with an interest
+            in financial markets, investment analysis, and corporate finance.
+            Through academic projects, independent investing, entrepreneurship,
+            and professional experience, I have developed skills in financial
+            analysis, Excel, business operations, and data-driven
+            decision-making. I am continuing to expand my technical and
+            analytical skills while pursuing opportunities to gain hands-on
+            experience in the finance industry.
+        </p>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section class="skills" id="skills">
+
+        <h2 class="section-title">Skills</h2>
+
+        <p class="section-subtitle">
+            Technical and professional skills
+        </p>
+
+
+        <div class="skills-container">
+
+            <div class="skill">Microsoft Excel</div>
+
+            <div class="skill">Financial Analysis</div>
+
+            <div class="skill">Financial Statement Analysis</div>
+
+            <div class="skill">Ratio Analysis</div>
+
+            <div class="skill">Portfolio Analysis</div>
+
+            <div class="skill">SQL</div>
+
+            <div class="skill">Data Analysis</div>
+
+            <div class="skill">Accounts Receivable</div>
+
+            <div class="skill">Invoicing</div>
+
+            <div class="skill">Business Operations</div>
+
+            <div class="skill">Problem Solving</div>
+
+            <div class="skill">Microsoft Office</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section class="projects" id="projects">
+
+        <h2 class="section-title">Projects</h2>
+
+        <p class="section-subtitle">
+            Selected finance and business projects
+        </p>
+
+
+        <div class="project-grid">
+
+
+            <!-- PROJECT 1 -->
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    PROJECT 01
+                </div>
+
+                <h3>Celsius Holdings Equity Research</h3>
+
+                <p>
+                    Conducted an equity research analysis of Celsius Holdings
+                    using SEC filings and financial statements. Evaluated
+                    revenue growth, profitability, financial ratios, recent
+                    acquisitions, and company performance to develop an
+                    investment-focused view of the business.
+                </p>
+
+                <div class="project-tags">
+                    <span class="tag">Equity Research</span>
+                    <span class="tag">SEC Filings</span>
+                    <span class="tag">Excel</span>
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 2 -->
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    PROJECT 02
+                </div>
+
+                <h3>Investment Portfolio Analysis</h3>
+
+                <p>
+                    Analyzed investment portfolio performance using Excel,
+                    including annual returns, variance, standard deviation,
+                    covariance, correlation, and Sharpe ratio calculations to
+                    evaluate portfolio risk and risk-adjusted performance.
+                </p>
+
+                <div class="project-tags">
+                    <span class="tag">Portfolio Analysis</span>
+                    <span class="tag">Risk & Return</span>
+                    <span class="tag">Excel</span>
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 3 -->
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    PROJECT 03
+                </div>
+
+                <h3>Private Credit Analysis</h3>
+
+                <p>
+                    Completed a simulated private credit analysis involving
+                    company financials, credit risk assessment, investment
+                    guidelines, and portfolio monitoring. Evaluated potential
+                    investments and developed recommendations based on
+                    financial and credit information.
+                </p>
+
+                <div class="project-tags">
+                    <span class="tag">Credit Analysis</span>
+                    <span class="tag">Financial Statements</span>
+                    <span class="tag">Risk Analysis</span>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact" id="contact">
+
+        <h2 class="section-title">Let's Connect</h2>
+
+        <p>
+            I'm interested in opportunities to learn, contribute, and gain
+            experience in finance and business.
+        </p>
+
+        <!-- Replace these with your actual links -->
+
+        <a
+            class="button"
+            href="https://www.linkedin.com/in/dmytro-husyev-a070072aa/?isSelfProfile=true"
+            target="_blank"
+        >
+            LinkedIn
+        </a>
+
+        <a
+            class="button"
+            href="dvh25@scarletmail.rutgers.edu"
+        >
+            Email Me
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+        © 2026 Dmytro | Rutgers Business School
+    </footer>
+
+
+</body>
+</html>
